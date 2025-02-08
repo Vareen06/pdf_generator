@@ -53,4 +53,12 @@
   p {
     font-weight: bold;
   }
+
+  .view{
+    margin-top: 10px;
+  }
+
+  .print{
+    margin-top: 10px;
+  }
   

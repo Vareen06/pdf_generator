@@ -66,7 +66,7 @@ export class AppComponent {
     this.total = 0
   }
 
-  generatePDF(){
+  commonPDF(){
     if(!this.saveDetails){
       alert("no details for pdf, click the submit button first")
       return;
@@ -99,6 +99,16 @@ export class AppComponent {
       styles: {fontSize:12, cellPadding: 3},
       headStyles: {fillColor: [22,160,133]}
     })
+    return doc
+  }
+
+  generatePDF(){
+    try{
+      const doc = this.commonPDF();
+      doc?.save('OrderDetails.pdf')
+    }catch(err){
+      console.error(err)
+    }
     // doc.setFontSize(12)
     // doc.text(`Name:${this.saveDetails.name}`,20,yOffset)
     // yOffset += 10;
@@ -109,9 +119,28 @@ export class AppComponent {
     // doc.text(`Quantity:${this.saveDetails.quantity}`,20,yOffset)
     // yOffset += 10;
     // doc.text(`Total:${this.saveDetails.total}`,20,yOffset)
-
-
     
-    doc.save('OrderDetails.pdf')
+  }
+
+  viewPDF(){
+    try{
+      const doc = this.commonPDF()
+      // console.log(doc)
+      if(doc){window.open(doc?.output('bloburl'),'_blank');} 
+    }catch(err){
+      console.error(err)
+    }
+  }
+
+  onPrint(){
+    try{
+      const doc = this.commonPDF()
+      if(doc){
+        doc.autoPrint()
+        window.open(doc.output('bloburl'),'_blank')
+      }
+    }catch(err){
+      console.error(err)
+    }
   }
 }
