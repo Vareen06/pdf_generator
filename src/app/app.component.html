@@ -1,0 +1,55 @@
+<div class="container-main">
+  <form (ngSubmit)="onSubmit()" #orderForm="ngForm">
+    <div class="container-details">
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        name="name"
+        placeholder="Name"
+        [(ngModel)]="userDetails.name"
+        required
+      />
+
+      <label for="contactDetails">Contact Details</label>
+      <input
+        type="number"
+        name="contactDetails"
+        placeholder="Contact"
+        [(ngModel)]="userDetails.contact"
+        required
+      />
+    </div>
+    <div class="container-order">
+      <label for="product">Product</label>
+      <input 
+        type="text"
+        name="product"
+        placeholder="Product"
+        [(ngModel)]="orderDetails.product"
+      />
+      <label for="price">Price:</label>
+      <input
+        type="number"
+        name="price"
+        placeholder="Price"
+        [(ngModel)]="orderDetails.price"
+        (input)="calculateTotal()"
+        required
+      />
+      <label for="quantity">Quantity:</label>
+      <input
+        type="number"
+        name="quantity"
+        placeholder="Quantity"
+        [(ngModel)]="orderDetails.quantity"
+        (input)="calculateTotal()"
+        required
+      />
+    </div>
+    <p>Total: {{ total }}</p>
+    <button type="submit" [disabled]="!isFormValid()">Submit</button>
+  </form>
+</div>
+<div>
+  <button (click)="generatePDF()">Download PDF</button>
+</div>

@@ -1,0 +1,56 @@
+.container-main {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .container-details, .container-order {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .container-details {
+    background-color: #d1ecf1; /* Light Blue */
+    border-left: 5px solid #17a2b8;
+  }
+  
+  .container-order {
+    background-color: #f8d7da; /* Light Red */
+    border-left: 5px solid #dc3545;
+  }
+  
+  h3 {
+    margin-top: 0;
+  }
+  
+  input {
+    display: block;
+    width: 80%;
+    padding: 8px;
+    margin: 5px 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  p {
+    font-weight: bold;
+  }
+  
